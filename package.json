@@ -1,6 +1,6 @@
 {
   "name": "@vudovn/antigravity-kit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "CLI tool to setup Antigravity Kit skills and MCPs",
   "main": "bin/index.js",
   "type": "module",
