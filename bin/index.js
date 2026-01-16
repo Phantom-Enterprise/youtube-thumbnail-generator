@@ -167,7 +167,7 @@ const initCommand = async (options) => {
         // Cleanup
         cleanup(tempDir);
 
-        spinner.succeed(chalk.green('✅ Installation successful!'));
+        spinner.succeed(chalk.green('Installation successful!'));
 
         // Success message
         console.log(chalk.gray('\n────────────────────────────────────────'));
