@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Thumbnail Generator</title>
+    <link rel="stylesheet" href="../src/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <h1>YouTube Thumbnail Generator</h1>
+        <p>Create a 1280×720 thumbnail from a YouTube URL or your own image.</p>
+      </header>
+
+      <section class="panel">
+        <div class="panel__section">
+          <h2>1. Upload an image</h2>
+          <label class="file-input">
+            <input id="imageUpload" type="file" accept="image/*" />
+            <span>Choose image</span>
+          </label>
+        </div>
+
+        <div class="panel__divider">or</div>
+
+        <div class="panel__section">
+          <h2>2. Paste a YouTube URL</h2>
+          <div class="input-group">
+            <input
+              id="youtubeUrl"
+              type="url"
+              placeholder="https://www.youtube.com/watch?v=..."
+            />
+            <button id="fetchButton" type="button">Fetch thumbnail</button>
+          </div>
+          <p class="hint">Supports youtube.com and youtu.be links.</p>
+        </div>
+      </section>
+
+      <section class="preview">
+        <div class="preview__header">
+          <h2>Thumbnail preview</h2>
+          <span id="status" class="status">Waiting for input…</span>
+        </div>
+        <div class="preview__canvas">
+          <img id="previewImage" alt="Thumbnail preview" />
+        </div>
+        <p id="errorMessage" class="error" role="alert" aria-live="polite"></p>
+        <button id="downloadButton" class="primary" type="button" disabled>
+          Download thumbnail
+        </button>
+      </section>
+    </main>
+
+    <canvas id="renderCanvas" width="1280" height="720" hidden></canvas>
+    <script type="module" src="../src/main.js"></script>
+  </body>
+</html>
