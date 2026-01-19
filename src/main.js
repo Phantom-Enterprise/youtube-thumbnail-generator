@@ -109,15 +109,15 @@ const drawTextOverlay = (text) => {
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.fillStyle = "#ffffff";
-  ctx.strokeStyle = "rgba(15, 23, 42, 0.85)";
-  ctx.lineWidth = 6;
+  ctx.strokeStyle = "rgba(0, 0, 0, 0.85)";
+  ctx.lineWidth = 8;
 
   const longestLine = lines.reduce((longest, line) =>
     line.length > longest.length ? line : longest,
   "");
 
   while (fontSize > 36) {
-    ctx.font = `700 ${fontSize}px \"Inter\", sans-serif`;
+    ctx.font = `700 ${fontSize}px \"Georgia\", \"Times New Roman\", serif`;
     if (ctx.measureText(longestLine).width <= maxWidth) {
       break;
     }
