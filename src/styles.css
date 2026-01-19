@@ -130,6 +130,7 @@ body {
   justify-content: center;
   padding: 12px;
   min-height: 260px;
+  position: relative;
 }
 
 .preview__canvas img {
@@ -137,6 +138,21 @@ body {
   max-width: 100%;
   border-radius: 10px;
   object-fit: cover;
+}
+
+.preview__overlay {
+  position: absolute;
+  inset: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 3.4rem);
+  text-shadow: 0 6px 18px rgba(15, 23, 42, 0.8);
+  pointer-events: none;
+  white-space: pre-wrap;
 }
 
 .status {

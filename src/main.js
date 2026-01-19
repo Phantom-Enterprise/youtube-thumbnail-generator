@@ -5,6 +5,7 @@ const imageUpload = document.getElementById("imageUpload");
 const youtubeUrl = document.getElementById("youtubeUrl");
 const fetchButton = document.getElementById("fetchButton");
 const previewImage = document.getElementById("previewImage");
+const previewOverlay = document.getElementById("previewOverlay");
 const renderCanvas = document.getElementById("renderCanvas");
 const downloadButton = document.getElementById("downloadButton");
 const errorMessage = document.getElementById("errorMessage");
@@ -36,6 +37,7 @@ const clearPreview = () => {
   previewImage.removeAttribute("src");
   downloadButton.disabled = true;
   currentImage = null;
+  previewOverlay.textContent = "";
 };
 
 const extractVideoId = (urlString) => {
@@ -142,6 +144,7 @@ const renderThumbnail = (message = "Preview ready.") => {
   drawTextOverlay(overlayText.value);
   const dataUrl = renderCanvas.toDataURL("image/jpeg", 0.92);
   setPreview(dataUrl);
+  previewOverlay.textContent = overlayText.value.trim();
   setStatus(message);
   setError("");
 };
