@@ -140,6 +140,14 @@ body {
   object-fit: cover;
 }
 
+.preview__shade {
+  position: absolute;
+  inset: 12px;
+  background: rgba(15, 23, 42, 0.35);
+  border-radius: 10px;
+  pointer-events: none;
+}
+
 .preview__overlay {
   position: absolute;
   inset: 12px;
