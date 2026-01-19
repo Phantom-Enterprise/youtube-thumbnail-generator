@@ -1,3 +1,7 @@
+---
+trigger: always_on
+---
+
 # GEMINI.md - Maestro Configuration
 
 > **Version 4.0** - Maestro AI Development Orchestrator
@@ -5,7 +9,7 @@
 
 ---
 
-## � CRITICAL: AGENT & SKILL PROTOCOL (START HERE)
+## CRITICAL: AGENT & SKILL PROTOCOL (START HERE)
 
 > **MANDATORY:** You MUST read the appropriate agent file and its skills BEFORE performing any implementation. This is the highest priority rule.
 
@@ -81,9 +85,9 @@ When user's prompt is NOT in English:
 > 🔴 **MANDATORY:** Read `ARCHITECTURE.md` at session start to understand Agents, Skills, and Scripts.
 
 **Path Awareness:**
-- Agents: `~/.agent/` (Global)
-- Skills: `~/.gemini/antigravity/skills/` (Global)
-- Runtime Scripts: `~/.gemini/antigravity/skills/<skill>/scripts/`
+- Agents: `.agent/` (Project)
+- Skills: `.agent/skills/` (Project)
+- Runtime Scripts: `.agent/skills/<skill>/scripts/`
 
 
 ### 🧠 Read → Understand → Apply
@@ -167,7 +171,7 @@ When user's prompt is NOT in English:
 | `lighthouse_audit.py` | performance-profiling | Before deploy |
 | `playwright_runner.py` | webapp-testing | Before deploy |
 
-> 🔴 **Agents & Skills can invoke ANY script** via `python ~/.gemini/antigravity/<skill>/scripts/<script>.py`
+> 🔴 **Agents & Skills can invoke ANY script** via `python .agent/skills/<skill>/scripts/<script>.py`
 
 ### 🎭 Gemini Mode Mapping
 
@@ -193,8 +197,8 @@ When user's prompt is NOT in English:
 
 | Task | Read |
 |------|------|
-| Web UI/UX | `~/.agent/frontend-specialist.md` |
-| Mobile UI/UX | `~/.agent/mobile-developer.md` |
+| Web UI/UX | `.agent/frontend-specialist.md` |
+| Mobile UI/UX | `.agent/mobile-developer.md` |
 
 **These agents contain:**
 - Purple Ban (no violet/purple colors)
@@ -239,10 +243,10 @@ When user's prompt is NOT in English:
 | Script | Path |
 |--------|------|
 | Full verify | `scripts/verify_all.py` |
-| Security scan | `~/.gemini/antigravity/skills/vulnerability-scanner/scripts/security_scan.py` |
-| UX audit | `~/.gemini/antigravity/skills/frontend-design/scripts/ux_audit.py` |
-| Mobile audit | `~/.gemini/antigravity/skills/mobile-design/scripts/mobile_audit.py` |
-| Lighthouse | `~/.gemini/antigravity/skills/performance-profiling/scripts/lighthouse_audit.py` |
-| Playwright | `~/.gemini/antigravity/skills/webapp-testing/scripts/playwright_runner.py` |
+| Security scan | `.agent/skills/vulnerability-scanner/scripts/security_scan.py` |
+| UX audit | `.agent/skills/frontend-design/scripts/ux_audit.py` |
+| Mobile audit | `.agent/skills/mobile-design/scripts/mobile_audit.py` |
+| Lighthouse | `.agent/skills/performance-profiling/scripts/lighthouse_audit.py` |
+| Playwright | `.agent/skills/webapp-testing/scripts/playwright_runner.py` |
 
 ---

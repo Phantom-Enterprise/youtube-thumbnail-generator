@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Antigravity Kit
 
-## Getting Started
+> **Version 2.0** - AI Agent templates with Skills, Agents, and Workflows
 
-First, run the development server:
+## Quick Install
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx @vudovn/ag-kit init
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Or install globally:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install -g @vudovn/ag-kit
+ag-kit init
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This installs the `.agent` folder containing all templates into your project.
 
-## Learn More
+## What's Included
 
-To learn more about Next.js, take a look at the following resources:
+| Component | Count | Description |
+|-----------|-------|-------------|
+| **Agents** | 16 | Specialist AI personas (frontend, backend, security, etc.) |
+| **Skills** | 40 | Domain-specific knowledge modules |
+| **Workflows** | 11 | Slash command procedures |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+.agent/
+├── agents/          # 16 Specialist Agents
+├── skills/          # 40 Skills
+├── workflows/       # 11 Slash Commands
+├── rules/           # Workspace Rules
+└── ARCHITECTURE.md  # Full documentation
+```
 
-## Deploy on Vercel
+## Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Using Agents
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Mention an agent by name to invoke specialized expertise:
+
+```
+Use the security-auditor agent to review authentication
+Use the frontend-specialist to analyze React components
+```
+
+### Using Skills
+
+Skills are loaded automatically based on task context. The AI reads skill descriptions and applies relevant knowledge.
+
+### Using Workflows
+
+Invoke workflows with slash commands:
+
+| Command | Description |
+|---------|-------------|
+| `/brainstorm` | Explore options before implementation |
+| `/create` | Create new features or apps |
+| `/debug` | Systematic debugging |
+| `/deploy` | Deploy application |
+| `/enhance` | Improve existing code |
+| `/orchestrate` | Multi-agent coordination |
+| `/plan` | Create task breakdown |
+| `/preview` | Preview changes locally |
+| `/status` | Check project status |
+| `/test` | Generate and run tests |
+| `/ui-ux-pro-max` | Design with 50 styles |
+
+Example:
+```
+/brainstorm authentication system
+/create landing page with hero section
+/debug why login fails
+```
+
+### Using Rules
+
+Rules in `.agent/rules/` are automatically applied. The main configuration file is `GEMINI.md`.
+
+## CLI Tool
+
+| Command | Description |
+|---------|-------------|
+| `ag-kit init` | Install `.agent` folder into your project |
+| `ag-kit update` | Update to the latest version |
+| `ag-kit status` | Check installation status |
+
+### Options
+
+```bash
+ag-kit init --force        # Overwrite existing .agent folder
+ag-kit init --path ./myapp # Install in specific directory
+ag-kit init --branch dev   # Use specific branch
+ag-kit init --quiet        # Suppress output (for CI/CD)
+ag-kit init --dry-run      # Preview actions without executing
+```
+
+## Documentation
+
+See [ARCHITECTURE.md](.agent/ARCHITECTURE.md) for full documentation on agents, skills, and workflows.
+
+## Buy me coffee
+
+<p align="center">
+  <a href="https://buymeacoffee.com/vudovn">
+    <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me a Coffee" />
+  </a>
+</p>
+
+## License
+
+MIT © Vudovn
