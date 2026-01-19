@@ -91,6 +91,16 @@ body {
   background: #1e40af;
 }
 
+.panel__section textarea {
+  width: 100%;
+  min-height: 110px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #cbd5f5;
+  font-size: 1rem;
+  resize: vertical;
+}
+
 .hint {
   margin: 8px 0 0;
   color: #64748b;

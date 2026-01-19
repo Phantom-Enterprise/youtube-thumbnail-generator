@@ -9,8 +9,10 @@ const renderCanvas = document.getElementById("renderCanvas");
 const downloadButton = document.getElementById("downloadButton");
 const errorMessage = document.getElementById("errorMessage");
 const status = document.getElementById("status");
+const overlayText = document.getElementById("overlayText");
 
 const ctx = renderCanvas.getContext("2d");
+let currentImage = null;
 
 const setStatus = (message) => {
   status.textContent = message;
@@ -33,6 +35,7 @@ const setPreview = (dataUrl) => {
 const clearPreview = () => {
   previewImage.removeAttribute("src");
   downloadButton.disabled = true;
+  currentImage = null;
 };
 
 const extractVideoId = (urlString) => {
@@ -84,12 +87,68 @@ const drawCoverImage = (image) => {
   ctx.drawImage(image, offsetX, offsetY, drawWidth, drawHeight);
 };
 
-const updateFromImage = (image) => {
-  drawCoverImage(image);
+const drawTextOverlay = (text) => {
+  if (!text) {
+    return;
+  }
+
+  const lines = text
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  if (!lines.length) {
+    return;
+  }
+
+  const maxWidth = THUMB_WIDTH * 0.9;
+  let fontSize = 96;
+
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillStyle = "#ffffff";
+  ctx.strokeStyle = "rgba(15, 23, 42, 0.85)";
+  ctx.lineWidth = 6;
+
+  const longestLine = lines.reduce((longest, line) =>
+    line.length > longest.length ? line : longest,
+  "");
+
+  while (fontSize > 36) {
+    ctx.font = `700 ${fontSize}px \"Inter\", sans-serif`;
+    if (ctx.measureText(longestLine).width <= maxWidth) {
+      break;
+    }
+    fontSize -= 4;
+  }
+
+  const lineHeight = fontSize * 1.15;
+  const totalHeight = lineHeight * lines.length;
+  const startY = THUMB_HEIGHT / 2 - totalHeight / 2 + lineHeight / 2;
+
+  lines.forEach((line, index) => {
+    const y = startY + index * lineHeight;
+    ctx.strokeText(line, THUMB_WIDTH / 2, y);
+    ctx.fillText(line, THUMB_WIDTH / 2, y);
+  });
+};
+
+const renderThumbnail = (message = "Preview ready.") => {
+  if (!currentImage) {
+    return;
+  }
+
+  drawCoverImage(currentImage);
+  drawTextOverlay(overlayText.value);
   const dataUrl = renderCanvas.toDataURL("image/jpeg", 0.92);
   setPreview(dataUrl);
-  setStatus("Preview ready.");
+  setStatus(message);
   setError("");
+};
+
+const updateFromImage = (image) => {
+  currentImage = image;
+  renderThumbnail();
 };
 
 const loadImageFromSource = (src) =>
@@ -164,6 +223,12 @@ fetchButton.addEventListener("click", () => {
     imageUpload.value = "";
   }
   fetchThumbnail();
+});
+
+overlayText.addEventListener("input", () => {
+  if (currentImage) {
+    renderThumbnail("Preview updated.");
+  }
 });
 
 youtubeUrl.addEventListener("keydown", (event) => {
