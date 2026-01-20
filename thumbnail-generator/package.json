@@ -2,6 +2,7 @@
   "name": "thumbnail-generator",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://phantom-enterprise.github.io/youtube-thumbnail-generator/",
   "type": "module",
   "scripts": {
     "dev": "vite",
