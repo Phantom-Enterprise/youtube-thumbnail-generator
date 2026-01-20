@@ -1,0 +1,19 @@
+{
+  "name": "youtube-thumbnail-generator",
+  "version": "1.0.0",
+  "description": "Custom YouTube Thumbnail Generator with High-Fidelity Scaling and Text Overlays",
+  "type": "module",
+  "scripts": {
+    "dev": "cd thumbnail-generator && npm run dev",
+    "build": "cd thumbnail-generator && npm run build"
+  },
+  "keywords": [
+    "youtube",
+    "thumbnail",
+    "generator",
+    "react",
+    "antigravity"
+  ],
+  "author": "Phantom Enterprise",
+  "license": "MIT"
+}
